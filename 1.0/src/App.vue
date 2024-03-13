@@ -52,7 +52,7 @@ async function traer() {
     let r = await axios.get("https://pokeapi.co/api/v2/pokemon/" + random)
     pokemon.value = r.data
     console.log(r.data);
-    img.value = r.data.sprites.front_default
+    img.value = r.data.sprites.other.dream_world.front_default
     ataque.value = r.data.stats[1].base_stat
     ataque2.value = ataque.value / 100
     defensa.value = r.data.stats[2].base_stat

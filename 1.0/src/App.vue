@@ -1,31 +1,33 @@
 <template>
-  <div class="card">
-    <div class="card-content">
-      <div class="img">
-        <img :src="img" alt="Pokemon Image" class="card-image">
-      </div>
-      <div class="father">
-        <div class="card-text">
-          <h1>Numero: {{ pokemon.id }}</h1>
-          <h1>Nombre: {{ pokemon.name }}</h1>
-          <h1>Altura: {{ pokemon.height }}</h1>
-          <h1>Peso: {{ pokemon.weight }}</h1>
+  <div class="mother">
+    <div class="card">
+      <div class="card-content">
+        <div class="img">
+          <img :src="img" alt="" class="card-image">
         </div>
-        <div class="lineas-text">
-          <p>{{ ataque }}</p>
-          <q-linear-progress reverse :value="ataque2" class="q-mt-md" />
-          <p>{{ defensa }}</p>
-          <q-linear-progress reverse :value="defensa2" class="q-mt-md" />
-          <p>{{ especialataque }}</p>
-          <q-linear-progress reverse :value="especialataque2" class="q-mt-md" />
-          <p>{{ especialdefensa }}</p>
-          <q-linear-progress reverse :value="especialdefensa2" class="q-mt-md" />
-          <p>{{ velocidad }}</p>
-          <q-linear-progress reverse :value="velocidad2" class="q-mt-md" />
+        <div class="father">
+          <div class="card-text">
+            <h1>Numero: {{ pokemon.id }}</h1>
+            <h1>Nombre: {{ pokemon.name }}</h1>
+            <h1>Altura: {{ pokemon.height }}</h1>
+            <h1>Peso: {{ pokemon.weight }}</h1>
+          </div>
+          <div class="lineas-text">
+            <p>{{ ataque }}</p>
+            <q-linear-progress reverse :value="ataque2" class="q-mt-md" />
+            <p>{{ defensa }}</p>
+            <q-linear-progress reverse :value="defensa2" class="q-mt-md" />
+            <p>{{ especialataque }}</p>
+            <q-linear-progress reverse :value="especialataque2" class="q-mt-md" />
+            <p>{{ especialdefensa }}</p>
+            <q-linear-progress reverse :value="especialdefensa2" class="q-mt-md" />
+            <p>{{ velocidad }}</p>
+            <q-linear-progress reverse :value="velocidad2" class="q-mt-md" />
+          </div>
         </div>
       </div>
+      <button class="card-button" @click="traer()">Aleatorio</button>
     </div>
-    <button class="card-button" @click="traer()">Traer datos</button>
   </div>
 </template>
 
@@ -68,10 +70,24 @@ async function traer() {
 </script>
 
 <style scoped>
+.mother {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(to bottom,
+      rgb(255, 0, 0),
+      rgb(223, 9, 9),
+      rgb(170, 7, 7),
+      rgb(139, 7, 7));
+}
+
 .card {
   width: 90%;
   margin: 0 auto;
-  margin-top: 60px;
+  margin-top: 40px;
   margin-bottom: 10px;
   border-radius: 10px;
   overflow: hidden;
@@ -147,6 +163,54 @@ async function traer() {
   margin-bottom: 10px;
 }
 
+button {
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  position: relative;
+  font-size: 1.6em;
+  padding: 0 2em;
+  cursor: pointer;
+  transition: 800ms ease all;
+  outline: none;
+}
+
+button:hover {
+  background: #fff;
+  color: #ff0000;
+}
+
+button:before,
+button:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #000000;
+  transition: 400ms ease all;
+}
+
+button:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+
+button:hover:before,
+button:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}
+
+@media (max-width: 1024px) {
+  .card {
+    max-width: 400px;
+  }
+}
+
 @media (max-width: 768px) {
   .img {
     width: 50%;
@@ -154,6 +218,28 @@ async function traer() {
 
   .father {
     width: 100%;
+  }
+
+  .card-text h1 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    max-width: 300px;
+  }
+
+  .father {
+    width: 80%;
+  }
+
+  .img {
+    max-width: 60px;
+  }
+
+  .card-button {
+    width: 150px;
   }
 }
 
@@ -179,12 +265,26 @@ async function traer() {
     width: 65%;
   }
 
-  .img{
+  .img {
     width: 35%;
   }
 
   .card-button {
     width: 150px;
+  }
+}
+
+@media (max-width: 400px) {
+  .img {
+    width: 40%;
+  }
+
+  .father {
+    width: 90%;
+  }
+
+  .card-button {
+    width: 120px;
   }
 }
 </style>

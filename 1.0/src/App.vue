@@ -205,12 +205,6 @@ button:hover:after {
   transition: 800ms ease all;
 }
 
-@media (max-width: 1024px) {
-  .card {
-    max-width: 400px;
-  }
-}
-
 @media (max-width: 768px) {
   .img {
     width: 50%;
@@ -225,23 +219,6 @@ button:hover:after {
   }
 }
 
-@media (max-width: 600px) {
-  .card {
-    max-width: 300px;
-  }
-
-  .father {
-    width: 80%;
-  }
-
-  .img {
-    max-width: 60px;
-  }
-
-  .card-button {
-    width: 150px;
-  }
-}
 
 @media (max-width: 480px) {
   .card-text h1 {
@@ -280,7 +257,7 @@ button:hover:after {
   }
 
   .father {
-    width: 90%;
+    width: 100%;
   }
 
   .card-button {

@@ -159,7 +159,7 @@ async function traer() {
 
 @media (max-width: 480px) {
   .card-text h1 {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .lineas-text p {
@@ -176,7 +176,11 @@ async function traer() {
   }
 
   .father {
-    width: 80%;
+    width: 65%;
+  }
+
+  .img{
+    width: 35%;
   }
 
   .card-button {

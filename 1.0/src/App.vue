@@ -217,6 +217,10 @@ button:hover:after {
   .card-text h1 {
     font-size: 20px;
   }
+
+  .card {
+    height: 90%;
+  }
 }
 
 
@@ -232,7 +236,6 @@ button:hover:after {
   .card {
     margin-top: 5px;
     margin-bottom: 5px;
-    height: 90%;
   }
 
   .card-content {

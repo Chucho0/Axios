@@ -7,26 +7,26 @@
         </div>
         <div class="father">
           <div class="card-text">
-            <h1>Numero: {{ pokemon.id }}</h1>
-            <h1>Nombre: {{ pokemon.name }}</h1>
-            <h1>Altura: {{ pokemon.height }}</h1>
-            <h1>Peso: {{ pokemon.weight }}</h1>
+            <h1><b>Numero:</b> {{ pokemon.id }}</h1>
+            <h1><b>Nombre: </b> {{ pokemon.name }}</h1>
+            <h1><b>Altura:</b> {{ pokemon.height }}</h1>
+            <h1><b>Peso:</b> {{ pokemon.weight }}</h1>
           </div>
           <div class="lineas-text">
-            <p>Ataque: {{ ataque }}</p>
+            <p><b>Ataque:</b> {{ ataque }}</p>
             <q-linear-progress reverse :value="ataque2" class="q-mt-md" />
-            <p>Defensa: {{ defensa }}</p>
+            <p><b>Defensa:</b> {{ defensa }}</p>
             <q-linear-progress reverse :value="defensa2" class="q-mt-md" />
-            <p>Ataque especial: {{ especialataque }}</p>
+            <p><b>Ataque especial:</b> {{ especialataque }}</p>
             <q-linear-progress reverse :value="especialataque2" class="q-mt-md" />
-            <p>Defensa especial: {{ especialdefensa }}</p>
+            <p><b>Defensa especial:</b> {{ especialdefensa }}</p>
             <q-linear-progress reverse :value="especialdefensa2" class="q-mt-md" />
-            <p>velocidad: {{ velocidad }}</p>
+            <p><b>velocidad:</b> {{ velocidad }}</p>
             <q-linear-progress reverse :value="velocidad2" class="q-mt-md" />
           </div>
         </div>
       </div>
-      <button class="card-button" @click="traer()">Aleatorio</button>
+      <button class="card-button" @click="traer()">Siguiente</button>
     </div>
   </div>
 </template>
@@ -72,11 +72,11 @@ async function traer() {
 <style scoped>
 .mother {
   width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
   background: linear-gradient(to bottom,
       rgb(255, 0, 0),
       rgb(223, 9, 9),
@@ -86,9 +86,8 @@ async function traer() {
 
 .card {
   width: 90%;
+  height: auto;
   margin: 0 auto;
-  margin-top: 40px;
-  margin-bottom: 10px;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -102,7 +101,9 @@ async function traer() {
 
 .card-content {
   width: 100%;
+  height: auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
@@ -111,6 +112,7 @@ async function traer() {
 
 .img {
   width: 30%;
+  height: 80vh;
   display: flex;
   justify-content: flex-end;
 }
@@ -118,24 +120,31 @@ async function traer() {
 .card-image {
   width: 100%;
   height: auto;
-  border-radius: 10px;
 }
 
 .father {
   width: 70%;
+  height: auto;
   display: flex;
   flex-direction: column;
 }
 
 .card-text {
   width: 100%;
+  font-size: 1.2em;
+  height: auto;
+  margin-bottom: 50px;
 }
 
 .card-text h1 {
-  font-size: 27px;
+  font-size: 1em;
   text-align: center;
-  height: 50px;
-  color: rgb(25, 118, 210);
+  height: 27px;
+  color: rgb(255, 255, 255);
+}
+
+b {
+  color: rgb(255, 0, 0);
 }
 
 .lineas-text {
@@ -144,15 +153,13 @@ async function traer() {
 
 .lineas-text p {
   margin: 0;
-  font-size: 17px;
-  color: rgb(25, 118, 210);
+  font-size: 1em;
+  color: rgb(255, 255, 255);
 }
 
 .card-button {
-  width: 200px;
   height: 25px;
   border-radius: 10px;
-  margin-top: auto;
   background-color: black;
   color: white;
   border: none;
@@ -160,7 +167,6 @@ async function traer() {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
 }
 
 button {
@@ -168,11 +174,12 @@ button {
   color: #fff;
   border: none;
   position: relative;
-  font-size: 1.6em;
-  padding: 0 2em;
+  font-size: 1em;
+  padding: 0 8px;
   cursor: pointer;
   transition: 800ms ease all;
   outline: none;
+  margin-bottom: 10px;
 }
 
 button:hover {
@@ -183,92 +190,66 @@ button:hover {
 button:before,
 button:after {
   content: '';
-  position: absolute;
   top: 0;
   right: 0;
-  height: 2px;
+  height: 1px;
   width: 0;
   background: #000000;
   transition: 400ms ease all;
 }
 
-button:after {
-  right: inherit;
-  top: inherit;
-  left: 0;
-  bottom: 0;
-}
-
-button:hover:before,
-button:hover:after {
-  width: 100%;
-  transition: 800ms ease all;
-}
-
-@media (max-width: 768px) {
+@media screen and (max-width: 1500px) {
   .img {
-    width: 50%;
-  }
+  height: 70vh;
+}
+}
 
-  .father {
-    width: 100%;
-  }
+@media screen and (max-width: 1300px) {
+  .img {
+  height: 60vh;
+}
+}
 
-  .card-text h1 {
-    font-size: 20px;
-  }
+@media screen and (max-width: 1100px) {
+  .img {
+  height: 50vh;
+}
+}
 
-  .card {
-    height: 70%;
-  }
-  .card-content{
+@media screen and (max-width: 900px) {
+  .img {
+  height: 40vh;
+}
+}
+
+@media screen and (max-width: 700px) {
+  .card-content {
     flex-direction: column;
   }
-}
-
-
-@media (max-width: 480px) {
-  .card-text h1 {
-    font-size: 15px;
-  }
-
-  .lineas-text p {
-    font-size: 15px;
-  }
-
-  .card {
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-
-  .card-content {
-    padding: 10px;
-  }
-
   .father {
-    width: 65%;
-  }
-
-  .img {
-    width: 35%;
-  }
-
-  .card-button {
-    width: 150px;
-  }
+  width: 100%;
+}
+.img {
+  width: 80%;
+}
+button {
+width: 150px;
+}
 }
 
-@media (max-width: 400px) {
-  .img {
-    width: 40%;
-  }
-
-  .father {
-    width: 100%;
-  }
-
-  .card-button {
-    width: 120px;
-  }
+@media screen and (max-width: 500px) {
+  button {
+width: 200px;
 }
+.img {
+  height: 15vh;
+}
+}
+
+@media screen and (max-width: 350px) {
+  .img {
+  height: 10vh;
+}
+}
+
 </style>

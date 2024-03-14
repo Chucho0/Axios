@@ -13,15 +13,15 @@
             <h1>Peso: {{ pokemon.weight }}</h1>
           </div>
           <div class="lineas-text">
-            <p>{{ ataque }}</p>
+            <p>Ataque: {{ ataque }}</p>
             <q-linear-progress reverse :value="ataque2" class="q-mt-md" />
-            <p>{{ defensa }}</p>
+            <p>Defensa: {{ defensa }}</p>
             <q-linear-progress reverse :value="defensa2" class="q-mt-md" />
-            <p>{{ especialataque }}</p>
+            <p>Ataque especial: {{ especialataque }}</p>
             <q-linear-progress reverse :value="especialataque2" class="q-mt-md" />
-            <p>{{ especialdefensa }}</p>
+            <p>Defensa especial: {{ especialdefensa }}</p>
             <q-linear-progress reverse :value="especialdefensa2" class="q-mt-md" />
-            <p>{{ velocidad }}</p>
+            <p>velocidad: {{ velocidad }}</p>
             <q-linear-progress reverse :value="velocidad2" class="q-mt-md" />
           </div>
         </div>
@@ -219,7 +219,7 @@ button:hover:after {
   }
 
   .card {
-    height: 90%;
+    height: 70%;
   }
   .card-content{
     flex-direction: column;

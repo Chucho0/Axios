@@ -205,6 +205,7 @@ button {
   transition: 800ms ease all;
   outline: none;
   margin-bottom: 10px;
+  width: 200px;
 }
 
 button:hover {
@@ -221,6 +222,10 @@ button:hover {
   margin-bottom: 10px;
   font-size: 1em;
   outline: none;
+}
+
+::placeholder {
+  color: #000000;
 }
 
 @media screen and (max-width: 1500px) {

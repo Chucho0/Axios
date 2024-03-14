@@ -221,6 +221,9 @@ button:hover:after {
   .card {
     height: 90%;
   }
+  .card-content{
+    flex-direction: column;
+  }
 }
 
 

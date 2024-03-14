@@ -135,7 +135,7 @@ async function traer() {
   font-size: 27px;
   text-align: center;
   height: 50px;
-  color: white;
+  color: rgb(25, 118, 210);
 }
 
 .lineas-text {

@@ -26,7 +26,10 @@
           </div>
         </div>
       </div>
-      <button class="card-button" @click="traer()">Siguiente</button>
+      <button class="card-button" @click="traer()">{{ buttonText }}</button>
+      <input type="number" id="pokemonId" placeholder="Buscar Pokémon por ID" v-model="pokemonId"
+        @keyup.enter="buscarPokemon" class="caja">
+      <button @click="buscarPokemon" class="card-button">Buscar</button>
     </div>
   </div>
 </template>
@@ -46,27 +49,49 @@ let especialdefensa = ref(0)
 let especialdefensa2 = ref(0)
 let velocidad = ref(0)
 let velocidad2 = ref(0)
+let buttonText = ref('Iniciar')
+let pokemonId = ref(null)
+async function buscarPokemon() {
+  try {
+    if (pokemonId.value === null || pokemonId.value <= 0) {
+      console.log('Ingresa un número de Pokémon válido')
+      return
+    }
+
+    let r = await axios.get("https://pokeapi.co/api/v2/pokemon/" + pokemonId.value)
+    actualizarPokemon(r.data)
+    pokemonId.value = null;
+  } catch (error) {
+    console.log(error);
+  }
+}
 async function traer() {
   try {
     let random = parseInt(Math.random() * 500 + 1);
     let r = await axios.get("https://pokeapi.co/api/v2/pokemon/" + random)
-    pokemon.value = r.data
-    console.log(r.data);
-    img.value = r.data.sprites.other.dream_world.front_default
-    ataque.value = r.data.stats[1].base_stat
-    ataque2.value = ataque.value / 100
-    defensa.value = r.data.stats[2].base_stat
-    defensa2.value = defensa.value / 100
-    especialataque.value = r.data.stats[3].base_stat
-    especialataque2.value = especialataque.value / 100
-    especialdefensa.value = r.data.stats[4].base_stat
-    especialdefensa2.value = especialdefensa.value / 100
-    velocidad.value = r.data.stats[5].base_stat
-    velocidad2.value = velocidad.value / 100
+    actualizarPokemon(r.data)
   } catch (error) {
     console.log(error);
   }
-} 
+}
+
+function actualizarPokemon(data) {
+  pokemon.value = data
+  console.log(data);
+  img.value = data.sprites.other.dream_world.front_default
+  ataque.value = data.stats[1].base_stat
+  ataque2.value = ataque.value / 100
+  defensa.value = data.stats[2].base_stat
+  defensa2.value = defensa.value / 100
+  especialataque.value = data.stats[3].base_stat
+  especialataque2.value = especialataque.value / 100
+  especialdefensa.value = data.stats[4].base_stat
+  especialdefensa2.value = especialdefensa.value / 100
+  velocidad.value = data.stats[5].base_stat
+  velocidad2.value = velocidad.value / 100
+
+  buttonText.value = 'Siguiente'
+}
 </script>
 
 <style scoped>
@@ -187,69 +212,66 @@ button:hover {
   color: #ff0000;
 }
 
-button:before,
-button:after {
-  content: '';
-  top: 0;
-  right: 0;
-  height: 1px;
-  width: 0;
-  background: #000000;
-  transition: 400ms ease all;
+.caja {
+  width: 200px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  font-size: 1em;
+  outline: none;
 }
 
 @media screen and (max-width: 1500px) {
   .img {
-  height: 70vh;
-}
+    height: 70vh;
+  }
 }
 
 @media screen and (max-width: 1300px) {
   .img {
-  height: 60vh;
-}
+    height: 60vh;
+  }
 }
 
 @media screen and (max-width: 1100px) {
   .img {
-  height: 50vh;
-}
+    height: 50vh;
+  }
 }
 
 @media screen and (max-width: 900px) {
   .img {
-  height: 40vh;
-}
+    height: 40vh;
+  }
 }
 
 @media screen and (max-width: 700px) {
   .card-content {
     flex-direction: column;
   }
+
   .father {
-  width: 100%;
-}
-.img {
-  width: 80%;
-}
-button {
-width: 150px;
-}
+    width: 100%;
+  }
+
+  .img {
+    width: 80%;
+  }
+
+  button {
+    width: 150px;
+  }
 }
 
 @media screen and (max-width: 500px) {
   button {
-width: 200px;
-}
-.img {
-  height: 15vh;
-}
-}
+    width: 200px;
+  }
 
-@media screen and (max-width: 350px) {
   .img {
-  height: 10vh;
+    height: 15vh;
+  }
 }
-}
-
 </style>

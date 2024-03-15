@@ -7,21 +7,21 @@
         </div>
         <div class="father">
           <div class="card-text">
-            <h1><b>Numero:</b> {{ pokemon.id }}</h1>
-            <h1><b>Nombre: </b> {{ pokemon.name }}</h1>
-            <h1><b>Altura:</b> {{ pokemon.height }}</h1>
-            <h1><b>Peso:</b> {{ pokemon.weight }}</h1>
+            <h1><b>Numero</b> {{ pokemon.id }}</h1>
+            <h1><b>Nombre </b> {{ pokemon.name }}</h1>
+            <h1><b>Altura</b> {{ pokemon.height }}</h1>
+            <h1><b>Peso</b> {{ pokemon.weight }}</h1>
           </div>
           <div class="lineas-text">
-            <p><b>Ataque:</b> {{ ataque }}</p>
+            <p><b>Ataque</b> {{ ataque }}</p>
             <q-linear-progress reverse :value="ataque2" class="q-mt-md" />
-            <p><b>Defensa:</b> {{ defensa }}</p>
+            <p><b>Defensa</b> {{ defensa }}</p>
             <q-linear-progress reverse :value="defensa2" class="q-mt-md" />
-            <p><b>Ataque especial:</b> {{ especialataque }}</p>
+            <p><b>Ataque especial</b> {{ especialataque }}</p>
             <q-linear-progress reverse :value="especialataque2" class="q-mt-md" />
-            <p><b>Defensa especial:</b> {{ especialdefensa }}</p>
+            <p><b>Defensa especial</b> {{ especialdefensa }}</p>
             <q-linear-progress reverse :value="especialdefensa2" class="q-mt-md" />
-            <p><b>velocidad:</b> {{ velocidad }}</p>
+            <p><b>velocidad</b> {{ velocidad }}</p>
             <q-linear-progress reverse :value="velocidad2" class="q-mt-md" />
           </div>
         </div>
@@ -224,6 +224,10 @@ button:hover {
   outline: none;
 }
 
+.celulares {
+display: none;
+}
+
 ::placeholder {
   color: #000000;
 }
@@ -279,4 +283,5 @@ button:hover {
     height: 15vh;
   }
 }
+
 </style>

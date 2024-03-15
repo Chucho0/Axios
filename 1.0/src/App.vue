@@ -121,7 +121,7 @@ function actualizarPokemon(data) {
 
 .card {
   width: 90%;
-  height: 95vh;
+  height: auto;
   margin: 0 auto;
   border-radius: 10px;
   overflow: hidden;
@@ -267,6 +267,9 @@ button:hover {
 }
 
 @media screen and (max-width: 700px) {
+  .mother{
+    height: 100vh;
+  }
   .card-content {
     flex-direction: column;
   }
@@ -276,11 +279,7 @@ button:hover {
   }
 
   .img {
-    width: 80%;
-  }
-
-  button {
-    width: 150px;
+    width: 70%;
   }
 }
 

@@ -147,7 +147,7 @@ function actualizarPokemon(data) {
 
 .img {
   width: 30%;
-  height: 80vh;
+  height: 77vh;
   display: flex;
   justify-content: flex-end;
 }

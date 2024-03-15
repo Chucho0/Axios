@@ -27,6 +27,7 @@
         </div>
       </div>
       <button class="card-button" @click="traer()">{{ buttonText }}</button>
+      <button class="card-button" @click="anteriorPokemon()">Anterior</button>
       <input type="number" id="pokemonId" placeholder="Buscar Pokémon por ID" v-model="pokemonId"
         @keyup.enter="buscarPokemon" class="caja">
       <button @click="buscarPokemon" class="card-button">Buscar</button>
@@ -57,7 +58,6 @@ async function buscarPokemon() {
       console.log('Ingresa un número de Pokémon válido')
       return
     }
-
     let r = await axios.get("https://pokeapi.co/api/v2/pokemon/" + pokemonId.value)
     actualizarPokemon(r.data)
     pokemonId.value = null;
@@ -74,7 +74,17 @@ async function traer() {
     console.log(error);
   }
 }
-
+let pokemonHistory = ref([]);
+function anteriorPokemon() {
+  if (pokemonHistory.value.length <= 1) {
+    console.log('No hay un Pokémon anterior');
+    return;
+  }
+  pokemonHistory.value.pop();
+  let previousPokemon = pokemonHistory.value[pokemonHistory.value.length - 1];
+  pokemonId.value = previousPokemon.id;
+  buscarPokemon();
+}
 function actualizarPokemon(data) {
   pokemon.value = data
   console.log(data);
@@ -89,8 +99,8 @@ function actualizarPokemon(data) {
   especialdefensa2.value = especialdefensa.value / 100
   velocidad.value = data.stats[5].base_stat
   velocidad2.value = velocidad.value / 100
-
   buttonText.value = 'Siguiente'
+  pokemonHistory.value.push(data);
 }
 </script>
 
@@ -225,7 +235,7 @@ button:hover {
 }
 
 .celulares {
-display: none;
+  display: none;
 }
 
 ::placeholder {
@@ -283,5 +293,4 @@ display: none;
     height: 15vh;
   }
 }
-
 </style>

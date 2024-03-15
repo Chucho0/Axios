@@ -113,15 +113,15 @@ function actualizarPokemon(data) {
   align-items: center;
   flex-direction: column;
   background: linear-gradient(to bottom,
-      rgb(255, 0, 0),
-      rgb(223, 9, 9),
+      rgb(139, 7, 7),
       rgb(170, 7, 7),
-      rgb(139, 7, 7));
+      rgb(223, 9, 9),
+      rgb(255, 0, 0));
 }
 
 .card {
   width: 90%;
-  height: auto;
+  height: 95vh;
   margin: 0 auto;
   border-radius: 10px;
   overflow: hidden;
@@ -147,7 +147,7 @@ function actualizarPokemon(data) {
 
 .img {
   width: 30%;
-  height: 77vh;
+  height: 80vh;
   display: flex;
   justify-content: flex-end;
 }

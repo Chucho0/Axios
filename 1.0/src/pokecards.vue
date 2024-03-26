@@ -33,8 +33,6 @@
             <button @click="buscarPokemon" class="card-button">Buscar</button>
         </div>
     </div>
-    <router-view>
-    </router-view>
 </template>
 
 <script setup>
@@ -123,7 +121,7 @@ function actualizarPokemon(data) {
 
 .card {
     width: 90%;
-    height: auto;
+    height: 99vh;
     margin: 0 auto;
     border-radius: 10px;
     overflow: hidden;
@@ -138,7 +136,7 @@ function actualizarPokemon(data) {
 
 .card-content {
     width: 100%;
-    height: auto;
+    height: 80%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

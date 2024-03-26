@@ -3,8 +3,8 @@
         <div class="bienvenida">
             <h1 class="titulo">¡Tu viaje Pokémon comienza aquí!</h1>
             <div class="rutas">
-                <button type="button" class=""> <router-link to="/pokecards">POKECARDS</router-link></button>
-                <button type="button" class=""> <router-link to="/pokeplay">POKEPLAY</router-link></button>
+                <router-link to="/pokecards"><button type="button">POKECARDS</button></router-link>
+                <router-link to="/pokeplay"><button type="button" class="">POKEPLAY</button></router-link>
             </div>
         </div>
         <video muted autoplay loop>
@@ -12,11 +12,9 @@
         </video>
         <div class="capa"></div>
     </main>
-    <router-view></router-view>
 </template>
 
 <script setup>
-
 </script>
 
 <style scoped>

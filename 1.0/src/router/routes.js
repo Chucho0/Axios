@@ -1,21 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import pokehome from '../pokehome.vue'
+import pokecards from '../pokecards.vue'
+import pokeplay from '../pokeplay.vue'
 
 const routes = [
-    {
-        path: '/',
-        name: 'home',
-        component: () => import('../pokehome.vue')
-    },
-    {
-        path: '/pokecards',
-        name: 'pokemonCards',
-        component: () => import('../pokecards.vue')
-    },
-    {
-        path: '/pokeplay',
-        name: 'pokemonPlay',
-        component: () => import('../pokeplay.vue')
-    }
+    { path: "/", component: pokehome },
+    { path: "/pokeplay", name: "pokeplay", component: pokeplay },
+    { path: "/pokecards", name: "pokecards", component: pokecards },
 ]
 
 export const router = createRouter({
@@ -23,4 +14,4 @@ export const router = createRouter({
     routes
 });
 
-export default routes;
+export default router
